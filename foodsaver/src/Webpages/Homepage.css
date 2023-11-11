@@ -1,6 +1,6 @@
 body{ /* For all pages*/
     background-position: center;    
-    background-color: #c1cdc1;
+    background-color: #3c2f2f ;
     font-family: "Garamond",Serif;
     text-align: center;
     margin: 5%;
@@ -9,56 +9,4 @@ body{ /* For all pages*/
 .Homepage, h1{
       color:white;
       font-family: "Garamond",Serif;
-}
-/*sign in page */
-.SigninPage{
-  font-family: Arial, sans-serif;
-  background-color:	#c1cdc1;
-
-}
-.SigninContainer, h1{
-  color: 	#cc9966;
-
-}
-.SigninContainer {
-  margin: 0 auto;
-  background-color:	#faebd7;
-  border: 1px solid #ccc;
-  padding: 20px;
-  position: relative;
-  top:100px;
-  width: 200px;
-  height: 300px;
-  text-align: center;
-  box-shadow: 0px 0px 5px #888;
-}
-
-
-#loginForm, form {
-  display: flex;
-  flex-direction: column;
-}
-
-#loginForm, label {
-  margin-bottom: 10px;
-}
-
-#loginForm, input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-#loginForm, button {
-  background-color:#d9e7c1;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-#message {
-  color: red;
 }

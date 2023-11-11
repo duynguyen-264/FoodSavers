@@ -6,16 +6,26 @@ function HomePage() {
   return (
     <>
         <div className="Homepage">
-        <h1>Food Oasis</h1>
+        <h1>Food Saver</h1>
         <Link to="/SigninPage">
           <button>Login</button>
         </Link>
-
-        <div className="Cart">
-          <div className="cart">
-            <img src="cart.gif" alt="Cart Icon" />
-          </div>
-        </div>
+        <Link to="/BuyerRegistrationPage">
+          <button>Sign Up as Buyer</button>
+        </Link>
+        <Link to="/SellerRegistrationPage">
+          <button>Sign Up as Seller</button>
+        </Link>
+        <Link to="/SellerRegistrationPage">
+          <button>Sign Up as Seller</button>
+        </Link>
+        <Link to="/SellerRegistrationPage">
+          <button>Sign Up as Seller</button>
+        </Link>
+        <Link to="/ProductPage">
+          <button>View Product</button>
+        </Link>
+  
       </div>
     </>
   );

@@ -1,22 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './SigninPage.css';
 
 function SigninPage() {
   return (
   <body>
     <div class= "SigninPage">
-      <h1>Food Oasis Login</h1>
-      <Link to="/notification">
-        <button>Shop</button>
+      <h1>Food Saver Login</h1>
+      <Link to="/BuyerRegistrationPage">
+        <button>Register as Buyer</button>
       </Link>
-      <Link to="/inventory">
-        <button>Account</button>
-      </Link>
-      <Link to="/summary">
-        <button>Contact</button>
+      <Link to="/SellerRegistrationPage">
+        <button>Register as Seller</button>
       </Link>
       <Link to="/">
-        <button>Back to Home</button>
+        <button>Explore Food Saver</button>
       </Link>
 
       <div class="SigninContainer"> 

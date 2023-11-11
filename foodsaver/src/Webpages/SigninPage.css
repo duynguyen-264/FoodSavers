@@ -1,51 +1,53 @@
-body {
+/*sign in page */
+.SigninPage{
     font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    background-color: #fff;
+    background-color:	#3c2f2f ;
+  
+  }
+  .SigninContainer, h1{
+    color: #fff4e6 ;
+  
+  }
+  .SigninContainer {
+    margin: 0 auto;
+    background-color:	#854442  ;
     border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 5px;
+    position: relative;
+    top:100px;
+    width: 200px;
+    height: 300px;
     text-align: center;
     box-shadow: 0px 0px 5px #888;
-}
-
-h1 {
-    color: #333;
-}
-
-form {
+  }
+  
+  
+  #loginForm, form {
     display: flex;
     flex-direction: column;
-}
-
-label {
+  }
+  
+  #loginForm, label {
     margin-bottom: 10px;
-}
-
-input {
+  }
+  
+  #loginForm, input {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
-}
-
-button {
-    background-color: #007bff;
-    color: #fff;
+  }
+  
+  #loginForm, button {
+    background-color:#be9b7b  ;
+    color: #fff4e6;
     padding: 10px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-}
-
-#message {
+  }
+  
+  #message {
     color: red;
-}
+  }
+  
