@@ -1,12 +1,97 @@
 body{ /* For all pages*/
     background-position: center;    
-    background-color: #3c2f2f ;
+    background-color: #3c2f2f;
     font-family: "Garamond",Serif;
     text-align: center;
     margin: 5%;
   }
-/*home page */
-.Homepage, h1{
-      color:white;
-      font-family: "Garamond",Serif;
+.container h1{
+  color:#fff4e6 ;
+  font-family: "Garamond",Serif;
+  font-size: 70px;
 }
+.container p{
+  color:#fff4e6 ;
+  font-family: "Garamond",Serif;
+  font-size:20px;
+  position: relative;
+  bottom: 40px;
+}
+.container input[type="text"] {
+  width: 40%;
+  padding: 8px;
+  margin-right: 10px;  
+  background-color:#be9b7b ;
+}
+.container button{
+  background-color:#854442;
+}
+.Homepage button {
+  position: absolute;
+  cursor: pointer;
+  margin-right: 50px;
+  position: relative;
+}
+
+#results {
+  margin-top: 20px;
+}
+
+.item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.image-container {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 50px;
+  white-space: nowrap; 
+}
+
+.scrolling-image {
+  display: inline-block;
+  margin-right: 20px; 
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+      transform: translateX(100%); 
+  }
+  100% {
+      transform: translateX(-100%); 
+  }
+}
+.menuBar {
+  position: absolute;
+margin:auto;
+  background-color:#854442;
+}
+.menuBar ul .dropdown li {
+  display: block;
+  }
+  .dropdown {
+  width: 80%;
+  background: #f7b183;
+  position: absolute;
+  z-index: 999;
+  display: none;
+  right: 0px; 
+  width:94px;
+
+  }
+  .menuBar ul li a:hover {
+  background: #fff4e6;
+  }
+  .menuBar ul li:hover ul {
+  display: block;
+  }
