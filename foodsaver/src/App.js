@@ -9,6 +9,7 @@ import ListingPage from './Webpages/ListingPage';
 import ReservePage from './Webpages/ReservePage';
 import SellerRegistrationPage from './Webpages/SellerRegistrationPage';
 import BuyerRegistrationPage from './Webpages/BuyerRegistrationPage';
+import AccountPage from './Webpages/AccountPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/ProductPage" element={<ProductPage />} />
             <Route path="/ListingPage" element={<ListingPage />} />
             <Route path="/ReservePage" element={<ReservePage />} />
+            <Route path="/AccountPage" element={<AccountPage />} />
 
       </Routes>
 

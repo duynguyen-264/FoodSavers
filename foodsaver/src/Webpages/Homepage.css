@@ -26,11 +26,22 @@ body{ /* For all pages*/
 .container button{
   background-color:#854442;
 }
+.bar{
+  background-color:#4b3832  ;
+  height: 50px;
+  margin: .5%;
+}
+.Homepage{
+position: relative;
+top: 50px;  
+}
 .Homepage button {
-  position: absolute;
   cursor: pointer;
-  margin-right: 50px;
+  margin-right: 20px;
   position: relative;
+  left:650px;
+  bottom: 42px;
+
 }
 
 #results {
@@ -72,26 +83,57 @@ body{ /* For all pages*/
   }
 }
 .menuBar {
-  position: absolute;
-margin:auto;
-  background-color:#854442;
+  position: relative;
+  text-decoration: none;
+  background-color: #854442;
+  width: 160px;
+  height: 40px;
+  text-align: left;
+  bottom: 47px;
+  left:100px;
 }
-.menuBar ul .dropdown li {
-  display: block;
-  }
   .dropdown {
-  width: 80%;
   background: #f7b183;
-  position: absolute;
-  z-index: 999;
-  display: none;
-  right: 0px; 
-  width:94px;
+  display: none; 
+  width:120px;
+  cursor: pointer;
+  position: relative;
+  right: 40px;
+  text-align: left;
+  
+  }
+  .menuBar ul a:hover {
+  background: #fff4e6;
 
   }
-  .menuBar ul li a:hover {
-  background: #fff4e6;
-  }
-  .menuBar ul li:hover ul {
+  .menuBar ul:hover ul {
   display: block;
+  }
+  .listing {
+    width: 400px;
+    height: 400px;
+    background-color: #fff4e6 ;
+    margin: 20px;
+    padding: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .desc{
+    margin:2%;
+  }
+
+ .Itemname {
+  align-self: flex-start;
+  font-family: "Garamond",Serif;
+  color:#3c2f2f;
+  font-size: 30px;
+
+  }
+  .Itemprice{
+  align-self: flex-end;
+  font-family: "Garamond",Serif;
+  font-size: 20px;
+  color:#854442;
+
   }

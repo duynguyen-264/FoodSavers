@@ -24,12 +24,22 @@ function HomePage() {
     <a href="bev.html"><img class="scrolling-image" src="bev.jpg" height="200" width="250"/></a>
     </div>
         
+        <div class= "bar">
         <div className="Homepage">
-        <div class="menuBar">
+        <Link to="/BuyerRegistrationPage">
+          <button>Register</button>
+        </Link>
+        <Link to="/SigninPage">
+          <button>Login</button>
+        </Link>
+        <Link to="/AccountPage">
+          <button>My Account</button>
+        </Link>
+        </div>  
 
+        <div class="menuBar">
         <ul>
-    <li>
-      <a href="#">Jump Ahead ▾ </a>
+    <button> Categories  </button>
         <ul class="dropdown">
             <li><a href="/ProductPage">Meat and Poultry</a></li>
             <li><a href="/ProductPage">Seafood</a></li>
@@ -41,30 +51,57 @@ function HomePage() {
             <li><a href="/ProductPage">Fruits</a></li>
             <li><a href="/ProductPage">Vegetable</a></li>
         </ul>
-      </li>
  </ul>
+ </div>    
+ </div>  
+ <div class= "listing">
+ <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
+ <div class= "desc">
+ <div class="Itemname">Seafood</div>
+<div class="Itemprice">2.99</div>
+</div>
  </div>
 
-        <Link to="/SigninPage">
-          <button>Login</button>
-        </Link>
-        <Link to="/BuyerRegistrationPage">
-          <button>Sign Up as Buyer</button>
-        </Link>
-        <Link to="/SellerRegistrationPage">
-          <button>Sign Up as Seller</button>
-        </Link>
-        <Link to="/SellerRegistrationPage">
-          <button>Sign Up as Seller</button>
-        </Link>
-        <Link to="/SellerRegistrationPage">
-          <button>Sign Up as Seller</button>
-        </Link>
-        <Link to="/ProductPage">
-          <button>View Product</button>
-        </Link>
-        </div>  
-    </div>  
+ <div class= "listing">
+ <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
+ <div class= "desc">
+ <div class="Itemname">Seafood</div>
+<div class="Itemprice">2.99</div>
+</div>
+ </div>
+
+ <div class= "listing">
+ <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
+ <div class= "desc">
+ <div class="Itemname">Seafood</div>
+<div class="Itemprice">2.99</div>
+</div>
+ </div>
+
+ <div class= "listing">
+ <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
+ <div class= "desc">
+ <div class="Itemname">Seafood</div>
+<div class="Itemprice">2.99</div>
+</div>
+ </div>
+
+ <div class= "listing">
+ <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
+ <div class= "desc">
+ <div class="Itemname">Seafood</div>
+<div class="Itemprice">2.99</div>
+</div>
+ </div>
+
+ <div class= "listing">
+ <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
+ <div class= "desc">
+ <div class="Itemname">Seafood</div>
+<div class="Itemprice">2.99</div>
+</div>
+ </div>
+ </div>
 
   );
 }
