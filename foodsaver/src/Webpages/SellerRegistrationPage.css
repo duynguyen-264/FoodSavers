@@ -1,0 +1,48 @@
+.SellerRegistrationPage {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #faebd7;
+    box-shadow: 0px 0px 5px #888;
+    font-family: "Garamond", Serif;
+}
+
+.SellerRegistrationPage h1 {
+    margin-bottom: 20px;
+    color: #cc9966;
+    font-family: "Garamond", Serif;
+}
+
+.SellerRegistrationPage input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: "Garamond", Serif;
+}
+
+.SellerRegistrationPage button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9e7c1;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Garamond", Serif;
+}
+
+.SellerRegistrationPage button:hover {
+    background-color: #c1cdc1;
+}
+
+.SellerRegistrationPage a {
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #666;
+    font-family: "Garamond", Serif;
+}
