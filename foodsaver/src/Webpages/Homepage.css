@@ -3,7 +3,7 @@ body{ /* For all pages*/
     background-color: #3c2f2f;
     font-family: "Garamond",Serif;
     text-align: center;
-    margin: 5%;
+    margin: 2%;
   }
 .container h1{
   color:#fff4e6 ;
@@ -16,6 +16,7 @@ body{ /* For all pages*/
   font-size:20px;
   position: relative;
   bottom: 40px;
+  right:150px;
 }
 .container input[type="text"] {
   width: 40%;

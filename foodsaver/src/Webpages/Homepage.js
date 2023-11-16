@@ -6,7 +6,7 @@ function HomePage() {
   return (
 
     <div class="container">
-    <h1>Food Saver</h1>
+    <img src="gif.gif" alt="title"/>
 <p>Preserving Flavor, Sealing Freshness: <br/>
  Your Ultimate Food Saver Destination!</p>
 <input type="text" id="searchInput" placeholder="Search items..."/>

@@ -42,6 +42,22 @@ function SellerRegistrationPage() {
     };
 
     return (
+        
+        <div class= "title">
+        <img src="gif.gif" alt="title"/>
+        <p>Preserving Flavor, Sealing Freshness: <br/>
+         Your Ultimate Food Saver Destination!</p>
+         <div class="image-container">
+    <a href="dairy.html"><img class="scrolling-image" src="dairy.jpg" height="200" width="250"/></a>
+    <a href="premade.html"><img class="scrolling-image" src="premade.jpg" height="200" width="250"/></a>
+    <a href="grain.html"><img class="scrolling-image" src="grain.jpg"  height="200" width="250"/></a>
+    <a href="fruits.html"><img class="scrolling-image" src="fruits.jpg" height="200" width="250"/></a>
+    <a href="veg.html"><img class="scrolling-image" src="veg.jpg"  height="200" width="250"/></a>
+    <a href="can.html"><img class="scrolling-image" src="can.jpg" height="200" width="250"/></a>
+    <a href="seafood.html"><img class="scrolling-image" src="seafood.jpg" height="200" width="250"/></a>
+    <a href="meat.html"><img class="scrolling-image" src="meat.jpg" height="200" width="250"/></a>
+    <a href="bev.html"><img class="scrolling-image" src="bev.jpg" height="200" width="250"/></a>
+    </div>
         <div className="SellerRegistrationPage">
             <h1>Food Saver</h1>
             <form onSubmit={handleSubmit}>
@@ -76,8 +92,10 @@ function SellerRegistrationPage() {
                 />
                 <button type="submit">Register</button>
             </form>
-            <Link to="/SigninPage">Already have an account? Login</Link>
-        </div>
+            <Link to="/SigninPage" style={{ color: 'white' }}>Already have an account? Login</Link>
+        </div>       
+         </div>
+
     );
 }
 
