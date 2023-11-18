@@ -20,8 +20,14 @@
     text-align: center;
     box-shadow: 0px 0px 5px #888;
   }
-  
-  
+  .SigninPage p{
+    color:#fff4e6 ;
+    font-family: "Garamond",Serif;
+    font-size:20px;
+    position: relative;
+    bottom: 40px;
+    right:150px;
+  }
   #loginForm, form {
     display: flex;
     flex-direction: column;
@@ -39,14 +45,20 @@
   }
   
   #loginForm, button {
-    background-color:#be9b7b  ;
+    background-color:#854442  ;
     color: #fff4e6;
     padding: 10px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
   }
-  
+.SigninPage button {
+    background-color: #be9b7b;
+  }
+  #loginForm button:hover {
+    background-color:#4b3832  ;
+
+  }
   #message {
     color: red;
   }
