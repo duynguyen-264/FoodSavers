@@ -45,8 +45,11 @@ function SellerRegistrationPage() {
       <>
           <div className="SellerRegistrationPage">
           <h1>Food Saver</h1>
+          <Link to="/BuyerRegistrationPage">
+            <button>Register as a Business Seller</button>
+          </Link>
           <Link to="/SigninPage">
-            <button>Login</button>
+            <button>Register as an Individual Seller</button>
           </Link>
         </div>
       </>
