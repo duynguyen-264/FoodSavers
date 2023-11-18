@@ -11,10 +11,14 @@ function SellerRegistrationPage() {
             <button>Login</button>
           </Link>
         </div>
+        <div className="RegistrationForm">
+          <h2>Register as a Business Food Seller</h2>
+        <Link to = "/BusinessSellerRegistration">
+            <button>Register</button>
+        </Link>
+      </div>
       </>
     );
   }
-  
-  export default SellerRegistrationPage;
-  
+ export default SellerRegistrationPage;
   
