@@ -10,6 +10,8 @@ import ReservePage from './Webpages/ReservePage';
 import SellerRegistrationPage from './Webpages/SellerRegistrationPage';
 import BuyerRegistrationPage from './Webpages/BuyerRegistrationPage';
 import AccountPage from './Webpages/AccountPage';
+import BusinessSellerRegistration from './Webpages/BusinessSellerRegistration';
+import IndividualSellerRegistration from './Webpages/IndividualSellerRegistration';    
 
 function App() {
   return (
@@ -24,7 +26,8 @@ function App() {
             <Route path="/ListingPage" element={<ListingPage />} />
             <Route path="/ReservePage" element={<ReservePage />} />
             <Route path="/AccountPage" element={<AccountPage />} />
-
+            <Route path="/BusinessSellerRegistration" element={<BusinessSellerRegistration />} />
+            <Route path="/IndividualSellerRegistration" element={<IndividualSellerRegistration />} />
       </Routes>
 
     </div>

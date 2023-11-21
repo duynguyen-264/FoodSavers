@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SellerRegistrationPage.css';
 
-function BusinessSellerRegistration() {
+function IndividualSellerRegistration() {
     const [formData, setFormData] = useState({
-        businessName: '',
-        businessEmail: '',
-        businessLocation: '',
+        name: '',
+        email: '',
+        location: '',
         password: '',
         confirmPassword: '',
-        businessLicenseNumber: ''
+        SSN: ''
     });
     const [passwordError, setPasswordError] = useState('');
 
@@ -52,23 +52,23 @@ function BusinessSellerRegistration() {
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
-                        name="businessName"
-                        placeholder="Business Name"
-                        value={formData.businessName}
+                        name="name"
+                        placeholder="Name"
+                        value={formData.name}
                         onChange={handleInputChange}
                     />
                     <input
                         type="email"
-                        name="businessEmail"
-                        placeholder="Business Email"
-                        value={formData.businessEmail}
+                        name="email"
+                        placeholder="Email"
+                        value={formData.email}
                         onChange={handleInputChange}
                     />
                     <input
                         type="text"
-                        name="businessLocation"
-                        placeholder="Business Location"
-                        value={formData.businessLocation}
+                        name="location"
+                        placeholder="Location (zipcode)"
+                        value={formData.location}
                         onChange={handleInputChange}
                     />
                     <input
@@ -88,20 +88,20 @@ function BusinessSellerRegistration() {
                     />
                     <input
                         type="text"
-                        name="businessLicenseNumber"
-                        placeholder="Business License Number"
-                        value={formData.businessLicenseNumber}
+                        name="ssn"
+                        placeholder="Social Security Number"
+                        value={formData.SSN}
                         onChange={handleInputChange}
                     />
                     <button type="submit">Register</button>
                 </form>
                 <Link to="/SigninPage"  style={{ color: 'white' }}>Already have an account? Login</Link>
-                <Link to="/BuyerRegistrationPage" style={{ color: 'white' }}>Looking to buy? Register as a buyer</Link>
+                <Link to="/SellerRegistrationPage" style={{ color: 'white' }}>Looking to sell? Register as a seller</Link>
                 </div>
 
             </div>
     );
 }
 
-    export default BusinessSellerRegistration;
+    export default IndividualSellerRegistration;
 
