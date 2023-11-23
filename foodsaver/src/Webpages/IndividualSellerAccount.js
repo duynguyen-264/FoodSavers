@@ -13,7 +13,17 @@ function BusinessSellerAccount({ formData, onEditClick }) {
         <p>Password: {formData.password}</p>
         <button onClick={onEditClick}>Edit Profile</button>
 
-        <Link to="/AccountPage"  style={{ color: 'white' }}>Not an individual seller? <br></br> Click to return to main account page</Link>
+        <Link to="/AccountPage"  style={{ color: 'white' }}>
+          Not an individual seller? <br></br> Click to return to main account page
+        </Link>
+
+        <Link to="/ListingPage">
+            <button>Create a Listing</button>
+        </Link> <br></br>
+
+        <Link to="/ListingPage">
+          <button>Active Listings</button>
+        </Link>
       </div>
     );
   }

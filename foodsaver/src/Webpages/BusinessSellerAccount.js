@@ -16,6 +16,14 @@ function BusinessSellerAccount({ formData, onEditClick }) {
         <Link to="/AccountPage"  style={{ color: 'white' }}>
           Not a business seller? <br></br> Click to return to main account page
         </Link>
+
+        <Link to="/ListingPage">
+            <button>Create a Listing</button>
+        </Link> <br></br>
+
+        <Link to="/ListingPage">
+          <button>Active Listings</button>
+        </Link>
       </div>
     );
   }
