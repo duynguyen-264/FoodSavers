@@ -9,10 +9,7 @@ function HomePage() {
     <img src="gif.gif" alt="title"/>
 <p>Preserving Flavor, Sealing Freshness: <br/>
  Your Ultimate Food Saver Destination!</p>
-<input type="text" id="searchInput" placeholder="Search items..."/>
-    <button onclick="searchItems()">Search</button>
-
-    <div class="image-container">
+ <div class="image-container">
     <a href="dairy.html"><img class="scrolling-image" src="dairy.jpg" height="200" width="250"/></a>
     <a href="premade.html"><img class="scrolling-image" src="premade.jpg" height="200" width="250"/></a>
     <a href="grain.html"><img class="scrolling-image" src="grain.jpg"  height="200" width="250"/></a>
@@ -23,38 +20,44 @@ function HomePage() {
     <a href="meat.html"><img class="scrolling-image" src="meat.jpg" height="200" width="250"/></a>
     <a href="bev.html"><img class="scrolling-image" src="bev.jpg" height="200" width="250"/></a>
     </div>
+    <nav className="navbar">
+      <ul>
+      <div className="dropdown">
+          <span>Categories</span>
+          <div className="dropdown-content">
+            <a href="#category1"><Link to="/ProductPage">Meat and Poultry</Link></a>
+            <a href="#category1"><Link to="/ProductPage">Seafood</Link></a>
+            <a href="#category1"><Link to="/ProductPage">Canned Products</Link></a>
+            <a href="#category1"><Link to="/ProductPage">Dairy</Link></a>
+            <a href="#category1"><Link to="/ProductPage">Beverages</Link></a>
+            <a href="#category1"><Link to="/ProductPage">Premade Meals</Link></a>
+            <a href="#category1"><Link to="/ProductPage">Grains Products</Link></a>
+            <a href="#category1"><Link to="/ProductPage">Fruits</Link></a>
+            <a href="#category1"><Link to="/ProductPage">Vegetable</Link></a>
+          </div>
+        </div>
+      <div className="zipcode-bar">
+          <input type="text" placeholder="Zipcode..." />
+          <button onClick={searchItems}>Enter</button>
+        </div>
         
-        <div class= "bar">
-        <div className="Homepage">
-        <Link to="/BuyerRegistrationPage">
-          <button>Register</button>
-        </Link>
-        <Link to="/SigninPage">
-          <button>Login</button>
-        </Link>
-        <Link to="/AccountPage">
-          <button>My Account</button>
-        </Link>
-        </div>  
+        <div className="search-bar">
+          <input type="text" placeholder="Search items..." />
+          <button onClick={searchItems}>Search</button>
+        </div>
+        <li>
+          <Link to="/BuyerRegistrationPage">Register</Link>
+        </li>
+        <li>
+          <Link to="/SigninPage">Login</Link>
+        </li>
+        <li>
+          <Link to="/AccountPage">My Account</Link>
+        </li>
+      </ul>
+    </nav>
 
-        <div class="menuBar">
-        <ul>
-    <button> Categories  </button>
-        <ul class="dropdown">
-            <li><a href="/ProductPage">Meat and Poultry</a></li>
-            <li><a href="/ProductPage">Seafood</a></li>
-            <li><a href="/ProductPage">Canned Products</a></li>
-            <li><a href="/ProductPage">Dairy</a></li>
-            <li><a href="/ProductPage">Beverages</a></li>
-            <li><a href="/ProductPage">Premade Meals</a></li>
-            <li><a href="/ProductPage">Grains Products</a></li>
-            <li><a href="/ProductPage">Fruits</a></li>
-            <li><a href="/ProductPage">Vegetable</a></li>
-        </ul>
- </ul>
- </div>    
- </div>   
- <div class= "listing">
+   <div class= "listing">
  <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
  <div class= "desc">
  <div class="Itemname">Seafood</div>
