@@ -10,7 +10,12 @@ function AccountPage() {
           <Link to="/">
         <button>Explore Food Saver</button>
       </Link>
-      <p> allow seller to view and edit and create listings</p>
+          <Link to="/ListingPage">
+            <button>Create a Listing</button>
+          </Link>
+          <Link to="/ListingPage">
+            <button>Active Listings</button>
+          </Link>
         </div>
       </>
     );
@@ -18,4 +23,5 @@ function AccountPage() {
   
   export default AccountPage;
   
+  //active listings will  allow seller to edit info
   
