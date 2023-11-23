@@ -53,7 +53,7 @@ function HomePage() {
         </ul>
  </ul>
  </div>    
- </div>  
+ </div>   
  <div class= "listing">
  <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
  <div class= "desc">
