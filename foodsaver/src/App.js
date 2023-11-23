@@ -1,7 +1,7 @@
 import logo from './logo.svg';
-import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import HomePage from './Webpages/Homepage';
 import SigninPage from './Webpages/SigninPage';
 import ProductPage from './Webpages/ProductPage';
@@ -12,8 +12,33 @@ import BuyerRegistrationPage from './Webpages/BuyerRegistrationPage';
 import AccountPage from './Webpages/AccountPage';
 import BusinessSellerRegistration from './Webpages/BusinessSellerRegistration';
 import IndividualSellerRegistration from './Webpages/IndividualSellerRegistration';    
+import BusinessSellerAccount from './Webpages/BusinessSellerAccount';
+import EditBusinessSellerAccount from './Webpages/EditBusinessSellerAccount';
+import IndividualSellerAccount from './Webpages/IndividualSellerAccount';
+import EditIndividualSellerAccount from './Webpages/EditIndividualSellerAccount';
+import BuyerAccountPage from './Webpages/BuyerAccountPage';
+import EditBuyerAccountPage from './Webpages/EditBuyerAccountPage';
 
 function App() {
+  const [formData, setFormData] = useState({}); // Initialize with the user's data
+  const navigateToEditBusinessSellerAccount = () => {
+    window.location.href = '/EditBusinessSellerAccount';
+  };
+
+  const navigateToEditIndividualSellerAccount = () => {
+    window.location.href = '/EditIndividualSellerAccount';
+  };
+
+  const navigateToEditBuyerAccountPage = () => {
+    window.location.href = '/EditBuyerAccountPage';
+  };
+
+  const handleEditSave = (editedData) => {
+    setFormData(editedData);
+    navigateToEditBusinessSellerAccount();
+    navigateToEditIndividualSellerAccount();
+    navigateToEditBuyerAccountPage();
+  };
   return (
     <Router>
     <div className="App">
@@ -28,6 +53,12 @@ function App() {
             <Route path="/AccountPage" element={<AccountPage />} />
             <Route path="/BusinessSellerRegistration" element={<BusinessSellerRegistration />} />
             <Route path="/IndividualSellerRegistration" element={<IndividualSellerRegistration />} />
+            <Route path="/BusinessSellerAccount" element={<BusinessSellerAccount formData={formData} onEditClick={navigateToEditBusinessSellerAccount} />} />
+            <Route path="/EditBusinessSellerAccount" element={<EditBusinessSellerAccount formData={formData} onSave={handleEditSave} />}/>
+            <Route path="/IndividualSellerAccount" element={<IndividualSellerAccount formData={formData} onEditClick={navigateToEditIndividualSellerAccount} />} />
+            <Route path="/EditIndividualSellerAccount" element={<EditIndividualSellerAccount formData={formData} onSave={handleEditSave} />}/>
+            <Route path="/BuyerAccountPage" element={<BuyerAccountPage formData={formData} onEditClick={navigateToEditBuyerAccountPage} />} />
+            <Route path="/EditBuyerAccountPage" element={<EditBuyerAccountPage formData={formData} onSave={handleEditSave} />}/>
       </Routes>
 
     </div>
