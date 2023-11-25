@@ -1,9 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 import './BuyerRegistrationPage.css';
 
 function BuyerRegistrationPage() {
-    const [formData, setFormData] = useState({
+    const [Name, setName] = useState('');
+    const [ Email, setEmail] = useState('');
+    const [ Password, setPassword] = useState('');
+    const [ Confirm_Password, setConfirm_Password] = useState('');
+    const [ Username, setUsername] = useState('');
+
+    useEffect(()=>{
+Axios.get("http://localhost:3001/api/get"). then((response)=> {
+    console.log(response.data);
+})
+    },[]);
+    
+    const submitReg=()=> {
+        Axios.post("http://localhost:3001/api/insert", {
+            Name: Name, 
+            Email:Email, 
+            Password:Password, 
+            Confirm_Password: Confirm_Password, 
+            Username: Username, 
+        }).then (()=> {
+            alert("successful insert");
+        });
+    };
+
+
+    /*const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
@@ -36,10 +62,10 @@ function BuyerRegistrationPage() {
         const isPasswordValid = validatePassword(formData.password);
 
         if (isPasswordValid) {
-            // Need to connect formData with DB when db is done
+           //  Need to connect formData with DB when db is done
             console.log('Form submitted:', formData);
         }
-    };
+    }; */
 
     return (
       <div class= "title">
@@ -48,37 +74,44 @@ function BuyerRegistrationPage() {
        Your Ultimate Food Saver Destination!</p>
         <div className="BuyerRegistrationPage">
             <h1>Food Saver</h1>
-            <form onSubmit={handleSubmit}>
+            <form >
                 <input
-                    type="text"
-                    name="name"
+                    type="char"
+                    name="Name"
                     placeholder="Name"
-                    value={formData.name}
-                    onChange={handleInputChange}
+                    onChange={(e) => {
+                        setName(e.target.value)
+                      }  }
                 />
+                    <input
+                    type="varchar"
+                    name="Username"
+                    placeholder="Username"
+                    onChange={(e) => {
+                        setUsername(e.target.value)
+                      }  } />
                 <input
-                    type="email"
-                    name="email"
+                    type="varchar"
+                    name="Email"
                     placeholder="Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                />
+                    onChange={(e) => {
+                        setEmail(e.target.value)
+                      }  }  />
                 <input
-                    type="password"
-                    name="password"
+                    type="varchar"
+                    name="Password"
                     placeholder="Password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                />
-                {passwordError && <p className="error-message">{passwordError}</p>}
+                    onChange={(e) => {
+                        setPassword(e.target.value)
+                      }  } />
                 <input
-                    type="password"
-                    name="confirmPassword"
+                    type="varchar"
+                    name="Confirm_Password"
                     placeholder="Confirm Password"
-                    value={formData.confirmPassword}
-                    onChange={handleInputChange}
-                />
-                <button type="submit">Register</button>
+                    onChange={(e) => {
+                        setConfirm_Password(e.target.value)
+                      }  } />
+                <button onClick={submitReg}>Register</button>
             </form>
             <Link to="/SigninPage"  style={{ color: 'white' }}>Already have an account? Login</Link>
             <Link to="/SellerRegistrationPage" style={{ color: 'white' }}>Looking to sell? Register as Seller</Link>
