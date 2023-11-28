@@ -1,40 +1,26 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
 import './ListingPage.css';
 
 function ListingPage() {
-    const [itemName, setitemName] = useState('');
-    const [ itemPrice, setitemPrice] = useState('');
-    const [ itemExp, setitemExp] = useState('');
-    const [ itemDesc, setitemDesc] = useState('');
-    const [ itemAddress, setitemAddress] = useState('');
-    const [ itemUnit, setitemUnit] = useState('');
-    const [ itemIMG, setitemIMG] = useState('');
-    const [ itemCat, setitemCat] = useState('');
+    const [formData, setFormData] = useState({
+      itemName: '',
+      itemPrice: '',
+      itemDesc: '',
+      itemExp: '',
+      itemAddress: '',
+      itemCat: '',
+      itemUnit: '',
+    });
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    useEffect(()=>{
-        Axios.get("http://localhost:3001/api/get"). then((response)=> {
-            console.log(response.data);
-        })
-            },[]);
-            
-            const submitReg=()=> {
-                Axios.post("http://localhost:3001/api/insert", {
-                    itemName: itemName, 
-                    itemPrice:itemPrice, 
-                    itemExp:itemExp, 
-                    itemDesc: itemDesc, 
-                    itemAddress: itemAddress, 
-                    itemUnit:itemUnit,
-                    itemIMG:itemIMG,
-                    itemCat:itemCat,
-        
-                }).then (()=> {
-                    alert("successful insert");
-                });
-            };
+    };
     return (
         <div className= "title">
         <img src="gif.gif" alt="title"/>
@@ -42,59 +28,49 @@ function ListingPage() {
         Your Ultimate Food Saver Destination!</p>
             <div className="SellerRegistrationPage">
                 <h1>Create a Listing</h1>
-                <form >
+                <form onSubmit={handleSubmit}>
                     <input
-                        type="char"
+                        type="text"
                         name="itemName"
                         placeholder="Product Name"
-                        onChange={(e) => {
-                            setitemName(e.target.value)
-                          }  }
+                        value={formData.itemName}
+                        onChange={handleInputChange}
                     />
                     <input
-                        type="float"
+                        type="email"
                         name="itemPrice"
                         placeholder="Product Price"
-                        onChange={(e) => {
-                            setitemPrice(e.target.value)
-                          }  }
+                        value={formData.itemPrice}
+                        onChange={handleInputChange}
                     />
                     <input
-                        type="char"
+                        type="text"
                         name="itemDesc"
                         placeholder="Product Description"
-                        onChange={(e) => {
-                            setitemDesc(e.target.value)
-                          }  }
-                    />
+                        value={formData.itemDesc}
+                        onChange={handleInputChange}
+                        />
                     <input
                         type="date"
                         name="itemExp"
                         placeholder="Expiration Date"
-                        onChange={(e) => {
-                            setitemExp(e.target.value)
-                          }  }
-                    />
+                        value={formData.itemExp}
+                        onChange={handleInputChange}
+                        />
                         <input
-                        type="varchar"
+                        type="text"
                         name="itemAddress"
                         placeholder="Pickup Address"
-                        onChange={(e) => {
-                            setitemAddress(e.target.value)
-                          }  }
-                    />
-                        <input type="int" 
+                        value={formData.itemAddress}
+                        onChange={handleInputChange}
+                        />
+                        <input type="number" 
                          name="itemUnit"
                         placeholder="Number of Units"
-                        onChange={(e) => {
-                            setitemUnit(e.target.value)
-                          }  }
-                    />
-               <select name="itemCat" type= "char"                        
-                         placeholder="Number of Units"
-                        onChange={(e) => {
-                            setitemCat(e.target.value)
-                          }  } required>
+                        value={formData.itemUnit}
+                        onChange={handleInputChange} />
+
+               <select id="productCategory" value={formData.itemCat} required>
                     <option>--Select Category--</option>
                     <option >Meat and Poultry</option>
                     <option >Seafood</option>
@@ -107,17 +83,14 @@ function ListingPage() {
                     <option >Vegetable</option>
                     
                 </select>
-                <input type="file" id="itemIMG" accept="image/*"                        
-                onChange={(e) => {
-                            setitemIMG(e.target.value)
-                          }  } />
+                <input type="file" id="productImage" accept="image/*" onChange={handleInputChange}/>
 
-                <button onClick={submitReg}>Create Listing</button>
+                <button type="submit">Create Listing</button>
             </form>
         </div>
         </div>
-
     );
 }
 
     export default ListingPage;
+

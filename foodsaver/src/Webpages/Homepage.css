@@ -76,35 +76,15 @@ body{ /* For all pages*/
   font-family: "Garamond",Serif;
   color:#3c2f2f;
   font-size: 30px;
-  position: relative;
-  left: 130px;
+
   }
   .Itemprice{
   align-self: flex-end;
   font-family: "Garamond",Serif;
   font-size: 20px;
   color:#854442;
-  position: relative;
-  right: 190px;
+
   }
-
-  .Itemaddress{
-    align-self: flex-end;
-    font-family: "Garamond",Serif;
-    font-size: 20px;
-    color:#854442;
-    position: relative;
-    right: 40px;
-    }
-
-    .Itemexp{
-      align-self: flex-end;
-      font-family: "Garamond",Serif;
-      font-size: 20px;
-      color:#854442;
-      position: relative;
-      right: 160px;
-      }
 
 .navbar {
   background-color: #4b3832;
@@ -216,26 +196,4 @@ body{ /* For all pages*/
 
       .dropdown:hover .dropdown-content {
           display: block;
-      }
-
-      .listing {
-        width: 400px;
-        height: 500px;
-        background-color: #fff4e6 ;
-        margin: 20px;
-        padding: 10px;
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .listingbutton button{
-        padding: 15px;
-        background-color:#be9b7b;
-        color:#854442;
-        font-weight: bold;
-    font-size:20px;
-      }
-      .button-spacing {
-        margin-left: 70px; /* Adjust the value to your preference */
-        background-color:#be9b7b;
       }
