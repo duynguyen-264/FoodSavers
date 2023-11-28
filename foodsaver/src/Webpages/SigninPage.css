@@ -1,16 +1,15 @@
-/*sign in page */
 .SigninPage{
     font-family: Arial, sans-serif;
-    background-color:	#3c2f2f ;
-  
+    background-color:    #3c2f2f ;
+
   }
   .SigninContainer, h1{
     color: #fff4e6 ;
-  
+
   }
   .SigninContainer {
     margin: 0 auto;
-    background-color:	#854442  ;
+    background-color:    #854442  ;
     border: 1px solid #ccc;
     padding: 20px;
     position: relative;
@@ -32,18 +31,18 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   #loginForm, label {
     margin-bottom: 10px;
   }
-  
+
   #loginForm, input {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
   }
-  
+
   #loginForm, button {
     background-color:#854442  ;
     color: #fff4e6;
@@ -62,4 +61,29 @@
   #message {
     color: red;
   }
+  .passwordcontent {
+    text-align: center;
+    position: relative;
+    top: 70px;
+    left:60px;
+  }
+  .passwordcontent p{
+    text-align: center;
+    position: relative;
+    top: 18px;
+    right: 50px;
+  }
+
+  .passwordcontent button {
+    text-align: center;
+    position: relative;
+    top: 40px;
+    right:150px;
+  }
+  .forgot-password button {
+    position: relative;
+    top: 40px;
+    left:150px;
+  }
+
   

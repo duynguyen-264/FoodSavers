@@ -1,107 +1,102 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 import './SellerRegistrationPage.css';
 
 function BusinessSellerRegistration() {
-    const [formData, setFormData] = useState({
-        businessName: '',
-        businessEmail: '',
-        businessLocation: '',
-        password: '',
-        confirmPassword: '',
-        businessLicenseNumber: ''
+  const [businessName, setBusinessName] = useState('');
+  const [businessEmail, setBusinessEmail] = useState('');
+  const [businessPassword, setBusinessPassword] = useState('');
+  const [confirmBusinessPassword, setConfirmBusinessPassword] = useState('');
+  const [businessAddress, setBusinessAddress] = useState('');
+  const [businessNumber, setBusinessNumber] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      console.log(response.data);
     });
-    const [passwordError, setPasswordError] = useState('');
+  }, []);
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
+  const validatePassword = (password) => {
+    if (password.length < 8) {
+      setPasswordError('Password must be at least 8 characters long.');
+      return false;
+    }
 
-    const validatePassword = (password) => {
-        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+    setPasswordError('');
+    return true;
+  };
 
-        if (!passwordRegex.test(password)) {
-            setPasswordError(
-                'Password must be at least 8 characters long, contain at least one number, one special character, and one letter.'
-            );
-            return false;
-        }
-        setPasswordError('');
-        return true;
-    };
+  const submitReg = () => {
+    const isPasswordValid = validatePassword(businessPassword);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    if (isPasswordValid) {
+      Axios.post("http://localhost:3001/api/insert", {
+        businessName: businessName,
+        businessEmail: businessEmail,
+        businessPassword: businessPassword,
+        confirmBusinessPassword: confirmBusinessPassword,
+        businessAddress: businessAddress,
+        businessNumber: businessNumber,
+      }).then(() => {
+        alert("Successful insert");
+      });
+    }
+  };
 
-        
-        const isPasswordValid = validatePassword(formData.password);
-
-        if (isPasswordValid) {
-            // Need to connect formData with DB when db is done
-            console.log('Form submitted:', formData);
-        }
-    };
-    return (
-        <div className= "title">
-        <img src="gif.gif" alt="title"/>
-        <p>Preserving Flavor, Sealing Freshness: <br/>
-        Your Ultimate Food Saver Destination!</p>
-            <div className="SellerRegistrationPage">
-                <h1>Food Saver</h1>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        name="businessName"
-                        placeholder="Business Name"
-                        value={formData.businessName}
-                        onChange={handleInputChange}
-                    />
-                    <input
-                        type="email"
-                        name="businessEmail"
-                        placeholder="Business Email"
-                        value={formData.businessEmail}
-                        onChange={handleInputChange}
-                    />
-                    <input
-                        type="text"
-                        name="businessLocation"
-                        placeholder="Business Location"
-                        value={formData.businessLocation}
-                        onChange={handleInputChange}
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                    />
-                    {passwordError && <p className="error-message">{passwordError}</p>}
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        placeholder="Confirm Password"
-                        value={formData.confirmPassword}
-                        onChange={handleInputChange}
-                    />
-                    <input
-                        type="text"
-                        name="businessLicenseNumber"
-                        placeholder="Business License Number"
-                        value={formData.businessLicenseNumber}
-                        onChange={handleInputChange}
-                    />
-                    <button type="submit">Register</button>
-                </form>
-                <Link to="/SigninPage"  style={{ color: 'white' }}>Already have an account? Login</Link>
-                <Link to="/BuyerRegistrationPage" style={{ color: 'white' }}>Looking to buy? Register as a buyer</Link>
-                </div>
-
-            </div>
-    );
+  return (
+    <div className="title">
+      <img src="gif.gif" alt="title" />
+      <p>Preserving Flavor, Sealing Freshness: <br /> Your Ultimate Food Saver Destination!</p>
+      <div className="BuyerRegistrationPage">
+        <h1>Business Seller Registration</h1>
+        <form>
+          <input
+            type="text"
+            name="businessName"
+            placeholder="Business Name"
+            onChange={(e) => setBusinessName(e.target.value)}
+          />
+          <input
+            type="text"
+            name="businessEmail"
+            placeholder="Business Email"
+            onChange={(e) => setBusinessEmail(e.target.value)}
+          />
+          <input
+            type="text"
+            name="businessAddress"
+            placeholder="Business Address"
+            onChange={(e) => setBusinessAddress(e.target.value)}
+          />
+          <input
+            type="password"
+            name="businessPassword"
+            placeholder="Password"
+            onChange={(e) => setBusinessPassword(e.target.value)}
+          />
+          {passwordError && <p className="error-message">{passwordError}</p>}
+          <input
+            type="password"
+            name="confirmBusinessPassword"
+            placeholder="Confirm Password"
+            onChange={(e) => setConfirmBusinessPassword(e.target.value)}
+          />
+          <input
+            type="text"
+            name="businessNumber"
+            placeholder="Business License Number"
+            onChange={(e) => setBusinessNumber(e.target.value)}
+          />
+          <button type="button" onClick={submitReg}>Register</button>
+        </form>
+        <Link to="/SigninPage" style={{ color: 'white' }}>Already have an account? Login</Link>
+        <Link to="/BuyerRegistrationPage" style={{ color: 'white' }}>Looking to buy? Register as a buyer</Link>
+      </div>
+    </div>
+  );
 }
 
-    export default BusinessSellerRegistration;
+export default BusinessSellerRegistration;
 

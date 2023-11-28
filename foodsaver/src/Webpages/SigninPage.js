@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SigninPage.css';
+import Axios from 'axios';
 
 function SigninPage() {
+  const [loginUsername, setloginUsername] = useState('');
+  const [loginPassword, setloginPassword] = useState('');
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetPasswordEmail, setResetPasswordEmail] = useState('');
+
+  const submitForgotPassword = () => {
+    Axios.post('http://localhost:3001/api/forgotPassword', {
+      resetPasswordEmail: resetPasswordEmail,
+    })
+      .then((response) => {
+        if (response.data.message) {
+          alert(response.data.message);
+        } else {
+          alert('Password reset email sent. Check your email for instructions.');
+          setShowForgotPassword(false);
+        }
+      })
+      .catch((error) => {
+        console.error('Error submitting forgot password request:', error);
+        // Handle error, e.g., display an error message to the user
+      });
+  };
+
+  const submitLogin = () => {
+    Axios.post('http://localhost:3001/api/login', {
+      loginUsername:  loginUsername,
+      loginPassword:  loginPassword,
+    }).then((response) => {
+      if (response.data.message) {
+        alert(response.data.message);
+      } else {
+        alert('Login successful');
+        // You can redirect to another page or perform other actions here
+      }
+    });
+  };
   return (
   <body>
 
@@ -36,15 +73,52 @@ function SigninPage() {
 
         <h1>Login</h1>
         <form id="loginForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required></input>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required></input>
-            <button type="submit">Login</button>
+        <input
+          type="varchar"
+          name=" loginUsername"
+          placeholder="Username"
+          onChange={(e) => {
+            setloginUsername(e.target.value);
+          }}
+        />
+        <input
+          type="varchar"
+          name=" loginPassword"
+          placeholder="Password"
+          onChange={(e) => {
+            setloginPassword(e.target.value);
+          }}
+        />     
+        <br/>   
+        <button onClick={submitLogin}>Login</button>
         </form>
-        <p id="message"></p>
+        <p className="forgot-password">
+           <span>
+           <button id= "gotpw"onClick={() => setShowForgotPassword(true)}>
+              Forgot Password?
+            </button>
+          </span>
+        </p>
       </div>
-  </div>
+
+      {/* Forgot Password Modal */}
+      {showForgotPassword && (
+        <div className="passwords">
+          <div className="passwordcontent">
+            <p>
+              Enter your email address to receive instructions for resetting your password.
+            </p>
+            <input
+              type="email"
+              name="resetPasswordEmail"
+              placeholder="Email"
+              onChange={(e) => setResetPasswordEmail(e.target.value)}
+            />
+            <button onClick={submitForgotPassword}>Reset Password</button>
+          </div>
+        </div>
+      )}
+    </div>
   </body>
 );
 
