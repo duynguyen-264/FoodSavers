@@ -1,8 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import Axios from 'axios';
 import './Homepage.css';
 
 function HomePage() {
+  const [data, setData] = useState([]);
+  const { itemId } = useParams();
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      setData(response.data.tbl_sellerlisting);
+    });
+  }, []);
+
+  const getItemDetails = async (itemId) => {
+    try {
+      const response = await Axios.get(`http://localhost:3001/api/getItem/${itemId}`);
+      // Handle the response data as needed, e.g., navigate to a details page
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching item details:", error);
+    }
+  };
+
+  const [zipcode1, setZipcode1] = useState('');
+  const [zipcode2, setZipcode2] = useState('');
+  const [distance, setDistance] = useState(null);
+
+  const handleZipcodeSubmit = async () => {
+    try {
+      console.log('Zipcode 1:', zipcode1);
+      console.log('Zipcode 2:', zipcode2);
+      const apiKey = 'js-Fpr03KGfSk8I1ODTYy7UWZWXHz3ujTJ0ZtxnZeKUy6OmX5f09iKhDt9oQZdq9znK'; 
+      const response = await Axios.get(`https://www.zipcodeapi.com/rest/${apiKey}/distance.json/${zipcode1}/${zipcode2}/mile`);
+      const { distance } = response.data;
+      setDistance(distance);
+    } catch (error) {
+      console.error('Error fetching distance:', error);
+    
+    }
+  };
+
   return (
 
     <div class="container">
@@ -36,10 +74,13 @@ function HomePage() {
             <a href="#category1"><Link to="/ProductPage">Vegetable</Link></a>
           </div>
         </div>
-      <div className="zipcode-bar">
-          <input type="text" placeholder="Zipcode..." />
-          <button onClick={searchItems}>Enter</button>
-        </div>
+
+        <div className="zipcode-bar">
+      <input type="text" placeholder="Your Zipcode" value={zipcode1} onChange={(e) => setZipcode1(e.target.value)} />
+      <input type="text" placeholder="Listing Zipcode" value={zipcode2} onChange={(e) => setZipcode2(e.target.value)} />
+      <button onClick={handleZipcodeSubmit}>Calculate Distance</button>
+      {distance && <p>Distance between {zipcode1} and {zipcode2}: {distance} miles</p>}
+       </div>
         
         <div className="search-bar">
           <input type="text" placeholder="Search items..." />
@@ -57,53 +98,32 @@ function HomePage() {
       </ul>
     </nav>
 
-   <div class= "listing">
- <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
- <div class= "desc">
- <div class="Itemname">Seafood</div>
-<div class="Itemprice">2.99</div>
-</div>
- </div>
 
- <div class= "listing">
- <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
- <div class= "desc">
- <div class="Itemname">Seafood</div>
-<div class="Itemprice">2.99</div>
-</div>
- </div>
 
- <div class= "listing">
- <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
- <div class= "desc">
- <div class="Itemname">Seafood</div>
-<div class="Itemprice">2.99</div>
-</div>
- </div>
+    <div>
+  {data.map((item) => (
+    <div key={item.itemID} className="listing">
+      <Link to={`/listing/${item.itemID}`}>
+        <img src={item.itemIMG} alt={item.itemName} height="300" width="400" />
+      </Link>
+      <div className="Itemname">{item.itemName}</div>
+      <div className="desc">{item.itemDesc}</div>
+      <div className="Itemprice">${item.itemPrice}</div>
+      <div className="Itemexp">{new Date(item.itemExp).toLocaleDateString()}</div>
+      <div className="Itemaddress">{item.itemAddress}</div>
+      <div class= "listingbutton">
+      <button onclick="pickUp(1)">Pick Up</button>
+      <span className="button-spacing"></span>
+      <button onclick="reserveFoodItem(1)">Reserve</button>
+      </div>
 
- <div class= "listing">
- <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
- <div class= "desc">
- <div class="Itemname">Seafood</div>
-<div class="Itemprice">2.99</div>
+    </div>
+  ))}
 </div>
- </div>
 
- <div class= "listing">
- <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
- <div class= "desc">
- <div class="Itemname">Seafood</div>
-<div class="Itemprice">2.99</div>
-</div>
- </div>
 
- <div class= "listing">
- <a href="listing.html"><img src="seafood.jpg" height="300" width="400"/></a>
- <div class= "desc">
- <div class="Itemname">Seafood</div>
-<div class="Itemprice">2.99</div>
-</div>
- </div>
+
+
  </div>
 
   );
@@ -148,4 +168,3 @@ function viewItem(itemId) {
 }
 
 export default HomePage;
-
